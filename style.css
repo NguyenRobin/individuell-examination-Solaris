@@ -1,0 +1,285 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: "Secular One", sans-serif;
+  background: linear-gradient(90deg, rgb(24, 23, 83) 20%, rgb(2, 7, 35) 80%);
+}
+
+.btn-close {
+  align-self: flex-end;
+  font-size: 3rem;
+  margin: 0 5rem;
+  padding: 3rem 3rem;
+  color: #fff;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-close:hover {
+  transform: rotate(180deg);
+}
+
+.container {
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  /* overflow: hidden; */
+  /* padding: 10rem; */
+  /* background: linear-gradient(90deg, rgb(24, 23, 83) 20%, rgb(2, 7, 35) 80%); */
+}
+
+.header {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 5rem;
+  /* padding: 6rem 4rem; */
+  /* gap: 1rem; */
+  /* position: absolute; */
+  /* right: 0; */
+  /* top: 0; */
+}
+
+main {
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  color: white;
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: "Lora", serif;
+  letter-spacing: 0.6em;
+  color: #ffd029;
+}
+
+.planet-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  gap: 6rem;
+  position: relative;
+}
+
+.planet-section article {
+  font-size: 2rem;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.planet-section article:hover {
+  transform: scale(1.3);
+  /* transform: rotateY(180deg); */
+  box-shadow: 0 0 3rem 1rem rgba(255, 255, 255, 0.5);
+}
+
+.solen {
+  background-color: #ffd029;
+  box-shadow: 0px 0px 25rem rgba(255, 208, 41, 0.2);
+  width: 80rem;
+  height: 80rem;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  position: absolute;
+  left: -96rem;
+}
+
+.merkurius {
+  background-color: #888888;
+  width: 2rem;
+  height: 2rem;
+}
+
+.venus {
+  background-color: #e7cdcd;
+  width: 3rem;
+  height: 3rem;
+}
+
+.jorden {
+  background-color: #428ed5;
+  width: 4rem;
+  height: 4rem;
+}
+
+.mars {
+  background-color: #ef5f5f;
+  width: 2rem;
+  height: 2rem;
+}
+
+.jupiter {
+  background-color: #e29468;
+  width: 20rem;
+  height: 20rem;
+}
+
+.saturnus {
+  background-color: #c7aa72;
+  width: 15rem;
+  height: 15rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saturnus span {
+  background-color: aliceblue;
+  display: inline-block;
+  width: 0.6rem;
+  height: 24rem;
+  position: absolute;
+  transform: rotate(60deg);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.uranus {
+  background-color: #c9d4f1;
+  width: 6rem;
+  height: 6rem;
+}
+
+.neptunus {
+  background-color: #7a91a7;
+  width: 6rem;
+  height: 6rem;
+  /* margin-right: 5rem; */
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10rem; */
+  padding: 5rem;
+  color: white;
+}
+
+.planet-info-section {
+  padding: 0rem 30rem;
+  color: #fff;
+  margin-bottom: 10rem;
+  background-image: url(/images/stars.png);
+  position: relative;
+  opacity: 0;
+}
+
+.header-planet {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 5rem;
+}
+
+.planet-text-introduction {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 5rem;
+  line-height: 3rem;
+  align-self: flex-start;
+  padding: 0 0 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.planet-subsection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  word-break: break-all;
+  padding-bottom: 3rem;
+}
+
+.moons {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 3rem;
+}
+
+.planet-heading {
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+}
+
+.planet-text {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+}
+
+.hide {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+.show-text {
+  opacity: 1;
+  transition: 2s ease-in;
+}
+
+/* TEST */
+
+.planet {
+  /* background-color: #ffd029; */
+  box-shadow: 0 0 3rem 1rem rgba(255, 255, 255, 0.5);
+  width: 80rem;
+  height: 80rem;
+  border: 50%;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+  left: -68rem;
+  transition: 0.3s;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+}
+.planet:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 3rem 3rem rgba(255, 255, 255, 0.5);
+}
+
+/* .middle-planet {
+  box-shadow: 0px 0px 25rem rgba(255, 208, 41, 0.3);
+  margin: -18rem;
+  width: 25rem;
+  height: 55rem;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 2rem;
+} */
