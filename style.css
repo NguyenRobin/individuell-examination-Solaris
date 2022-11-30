@@ -191,7 +191,7 @@ figure {
   padding: 0rem 30rem;
   color: #fff;
   margin-bottom: 10rem;
-  background-image: url("/images/stars.png");
+  background-image: url("../images/stars.png");
   position: relative;
   opacity: 0;
 }
