@@ -10,6 +10,7 @@ const mainEl = document.querySelector("main");
 const planetsEL = document.querySelectorAll(".planet-section article");
 const planetSectionInfoEl = document.querySelector(".planet-info-section");
 const btnCloseEl = document.querySelector(".btn-close");
+const TwoMilliseconds = 200;
 
 async function getKey() {
   try {
@@ -19,7 +20,7 @@ async function getKey() {
     return data.key;
   } catch (error) {
     console.log(error.message);
-    // throw error;
+    throw error;
   }
 }
 
@@ -38,7 +39,7 @@ async function getPlanets() {
     return data.bodies;
   } catch (error) {
     console.log(error.message);
-    // throw error;
+    throw error;
   }
 }
 
@@ -53,51 +54,72 @@ function closeModalWindow() {
 
 function openModalWindow() {
   btnCloseEl.classList.toggle("active");
-  document.querySelector(".planet-info-section").classList.toggle("show-text");
   planetSectionEl.classList.toggle("hide");
   headerEl.classList.add("hide");
 }
 
-function renderPlanetPage(data, className) {
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    document
+      .querySelector(".planet-info-section")
+      .classList.contains("show-text")
+  ) {
+    closeModalWindow();
+  }
+});
+
+// CSS transition did not work without setTimeout
+function showSmoothText() {
+  setTimeout(() => {
+    document
+      .querySelector(".planet-info-section")
+      .classList.toggle("show-text");
+  }, TwoMilliseconds);
+}
+
+function renderPlanetInformation(data, className) {
   const html = `
   <section class="planet-info-section">
-  <header class="header-planet">
-  <h1>${data.name}</h1>
-  <h2>${data.latinName}</h2>
-</header>
-    <article class="planet ${className.toLowerCase()}"></article>
-    <p class="planet-text-introduction">${data.desc}</å>
+    <header class="header-planet">
+      <h1>${data.name}</h1>
+      <h2>${data.latinName}</h2>
+    </header>
+
+    <article class="current-planet ${className.toLowerCase()}"></article>
+
+    <p class="planet-text-introduction">${data.desc}</p>
     <section class="planet-subsection">
       <article>
         <h3 class="planet-heading">OMKRETS</h3>
         <p class="planet-text">${data.circumference} KM</p>
       </article>
 
-    <article>
-      <h3 class="planet-heading">KM FRÅN SOLEN</h3>
-      <p class="planet-text">${data.distance.toString()} KM</p>
-    </article>
+      <article>
+        <h3 class="planet-heading">KM FRÅN SOLEN</h3>
+        <p class="planet-text">${data.distance.toString()} KM</p>
+      </article>
+
+      <article>
+        <h3 class="planet-heading">MAX TEMPERATUR</h3>
+        <p class="planet-text">${data.temp.day} &#8451;</p>
+      </article>
+
+      <article>
+        <h3 class="planet-heading">MIN TEMPERATUR</h3>
+        <p class="planet-text">${data.temp.night} &#8451;</p>
+      </article>
+    </section>
 
     <article>
-      <h3 class="planet-heading">MAX TEMPERATUR</h3>
-      <p class="planet-text">${data.temp.day} &#8451;</p>
-    </article>
-
-    <article>
-      <h3 class="planet-heading">MIN TEMPERATUR</h3>
-      <p class="planet-text">${data.temp.night} &#8451;</p>
+      <h3 class="planet-heading moons">MÅNAR</h3>
+      <p class="planet-text">${
+        data.moons.toString()
+          ? data.moons.toString().replaceAll(",", ", ")
+          : (data.moons.textContent = "0")
+      }</p>
     </article>
   </section>
-  <article">
-  <h3 class="planet-heading moons">MÅNAR</h3>
-  <p class="planet-text">${
-    data.moons.toString()
-      ? data.moons.toString().replaceAll(",", ", ")
-      : (data.moons.textContent = "0")
-  }</p>
-</article>
-</section>
-</section>
   `;
 
   mainEl.insertAdjacentHTML("beforeend", html);
@@ -110,8 +132,9 @@ planetsEL.forEach((planet) => {
     for (const eachData of data) {
       const planetName = eachData.name.toLowerCase();
       if (planetName === clickedPlanetClassList) {
-        renderPlanetPage(eachData, planetName);
+        renderPlanetInformation(eachData, planetName);
         openModalWindow();
+        showSmoothText();
       }
     }
   });

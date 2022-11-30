@@ -247,12 +247,18 @@ figure {
 }
 .show-text {
   opacity: 1;
-  transition: 2s ease-in;
+  transition: 2s;
+}
+
+.hide-text {
+  left: -100%;
+  opacity: 1;
+  transition: 2s;
 }
 
 /* TEST */
 
-.planet {
+.current-planet {
   /* background-color: #ffd029; */
   box-shadow: 0 0 3rem 1rem rgba(255, 255, 255, 0.5);
   width: 80rem;
@@ -267,7 +273,7 @@ figure {
   cursor: pointer;
   position: absolute;
 }
-.planet:hover {
+.current-planet:hover {
   transform: scale(1.5);
   box-shadow: 0 0 3rem 3rem rgba(255, 255, 255, 0.5);
 }
