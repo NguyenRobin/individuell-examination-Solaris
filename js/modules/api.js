@@ -23,7 +23,7 @@ async function getPlanets() {
 
     if (!response.ok) throw new Error("Problem getting data! ⛔️");
     const data = await response.json();
-    // console.log(data.bodies);
+    console.log(data.bodies);
 
     return data.bodies;
   } catch (error) {

@@ -71,6 +71,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   color: white;
   gap: 6rem;
   position: relative;
@@ -177,7 +178,7 @@ figure {
   padding: 0rem 30rem;
   color: #fff;
   margin-bottom: 10rem;
-  background-image: url("../images/stars.png");
+  background-image: url("./images/stars.png");
   position: relative;
   opacity: 0;
   right: 0%;
@@ -234,7 +235,7 @@ figure {
 }
 .show-text {
   opacity: 1;
-  transition: 2s;
+  transition: 0.4s;
 }
 
 .right {

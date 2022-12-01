@@ -29,4 +29,17 @@ function openModalWindow() {
 
 btnCloseEl.addEventListener("click", closeModalWindow);
 
+function closeModalPressingEscape() {
+  document.addEventListener("keydown", (event) => {
+    const planetInfoSectionEl = document.querySelector(".planet-info-section");
+    if (
+      event.key === "Escape" &&
+      planetInfoSectionEl?.classList.contains("show-text")
+    ) {
+      closeModalWindow();
+    }
+  });
+}
+closeModalPressingEscape();
+
 export { closeModalWindow, openModalWindow };

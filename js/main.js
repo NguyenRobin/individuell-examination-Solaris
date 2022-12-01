@@ -1,24 +1,10 @@
 "use strict";
 
 import { getPlanets } from "./modules/api.js";
-import { openModalWindow, closeModalWindow } from "./modules/openorclose.js";
+import { openModalWindow, closeModalWindow } from "./modules/modal.js";
 
 const mainEl = document.querySelector("main");
 const planetsAllEL = document.querySelectorAll(".planet-section article");
-
-function closeModalPressingEscape() {
-  document.addEventListener("keydown", (event) => {
-    if (
-      event.key === "Escape" &&
-      document
-        .querySelector(".planet-info-section")
-        .classList.contains("show-text")
-    ) {
-      closeModalWindow();
-    }
-  });
-}
-closeModalPressingEscape();
 
 function renderPlanetInformation(data, className) {
   const html = `
@@ -37,12 +23,14 @@ function renderPlanetInformation(data, className) {
     <section class="planet-subsection">
       <article>
         <h3 class="planet-heading">OMKRETS</h3>
-        <p class="planet-text">${data.circumference} KM</p>
+        <p class="planet-text">${data.circumference.toLocaleString(
+          "sv-SE"
+        )} KM</p>
       </article>
 
       <article>
         <h3 class="planet-heading">KM FRÅN SOLEN</h3>
-        <p class="planet-text">${data.distance.toString()} KM</p>
+        <p class="planet-text">${data.distance.toLocaleString("sv-SE")} KM</p>
       </article>
 
       <article>
