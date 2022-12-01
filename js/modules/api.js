@@ -23,7 +23,7 @@ async function getPlanets() {
 
     if (!response.ok) throw new Error("Problem getting data! ⛔️");
     const data = await response.json();
-    console.log(data.bodies);
+    // console.log(data.bodies);
 
     return data.bodies;
   } catch (error) {
@@ -32,12 +32,12 @@ async function getPlanets() {
   }
 }
 
-export { getKey, getPlanets };
+export { getPlanets };
 
 /*
 
-Kommentar:
+// KOMMENTAR 
 
-
+I denna module skickas en förfrågan om hämta data från en API för att vårt program ska kunna fungera korrekt och ta del av all data. Alla steg körs här. Om förfrågan är lyckad eller misslyckad, kan vi enkelt felsöka vart problemet inträffat .
 
 */
